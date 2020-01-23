@@ -49,6 +49,12 @@
 
 
 	<?php
+
+		date_default_timezone_set ("America/Sao_Paulo");
+
+		$data = "03-26-1990";
+		$data = str_replace("-", "/", $data);
+
 		$passado = strtotime("03/26/1990");
 		$hoje = strtotime(date("m/d/Y"));
 
@@ -61,6 +67,33 @@
 
 		$difAnos = intval($difDias / 365);
 		echo "Diferença em anos: $difAnos<br>";
+
+		echo "<br><br><br><br><br><br><br>";
+
+	  $VHoje = time(); //timestamp
+	  $VDataSQL = strtotime('2019-10-17 22:23:00'); // timestamp
+	  $VDiferenca = $VHoje - $VDataSQL;
+
+	  $VDias = floor($VDiferenca / (60 * 60 * 24));
+
+	  echo "A diferença é de $VDias dias <br>";
+
+		$datetime1 = new DateTime(); // Hoje
+		$datetime2 =   new DateTime("2019-10-25 12:09:00"); // Data que quero diferença
+		$interval = $datetime1->diff($datetime2); // Objeto intervalo
+		var_dump($interval->h); // Diferença de hora
+		var_dump($interval->i); // Diferença de minuto
+		var_dump($interval->s); // Diferença de segundos
+		var_dump($interval); // Todas as diferenças
+
+
+
+
+		intval(date_format($datetime1, 'G'));
+		var_dump(intval(date_format($datetime1, 'G')));
+
+
+		var_dump($interval);
 	?>
 </body>
 </html>
